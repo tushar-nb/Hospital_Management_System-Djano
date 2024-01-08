@@ -1,0 +1,24 @@
+<!-- templates/patient/patient_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patient List</title>
+</head>
+<body>
+    <h1>Patient List</h1>
+    <ul>
+        {% for patient in patients %}
+            <li>
+                <b>Name:</b>{{ patient.patient_name }},<br> <b>Age:</b> {{ patient.age }},<br><b>Disease:</b> {{ patient.disease }},<br>
+                <b>Appointed Doctor:</b> {{ patient.appointed_doctor_name }},<br>
+                <b>Hospital:</b> {{ patient.hospital.hospitalName }},<br>
+                <b>Status:</b> {{ patient.get_patient_status_display }}<br>
+                [<a href="{% url 'change_patient_status' patient_id=patient.id %}">Change Status</a>]
+            </li><br>
+        {% endfor %}
+    </ul><br>
+    <a href="{% url 'add_patient' %}">Add Patient</a><br>
+    <br>
+    <a href="{% url 'home' %}">HOME</a><br>
+</body>
+</html>

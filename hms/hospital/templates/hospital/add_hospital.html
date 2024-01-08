@@ -1,0 +1,16 @@
+<!-- templates/hospital/add_hospital.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Hospital</title>
+</head>
+<body>
+    <h1>Add Hospital</h1>
+    <form method="post" action="{% url 'add_hospital' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+    <a href="{% url 'hospital_list' %}">Back to Hospital List</a>
+</body>
+</html>

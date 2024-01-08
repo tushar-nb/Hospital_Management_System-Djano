@@ -1,0 +1,21 @@
+<!-- templates/hospital/hospital_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hospital List</title>
+</head>
+<body>
+    <h1>Hospital List</h1>
+    <ul>
+        {% for hospital in hospitals %}
+            <li>{{ hospital.hospitalName }} - {{ hospital.address }} - {{ hospital.department }} - {{ hospital.disease }}
+                [<a href="{% url 'delete_hospital' hospital_name=hospital.hospitalName %}">Delete</a>]
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_hospital' %}">Add Hospital</a>
+    <br>
+    
+    <a href="{% url 'home' %}">HOME</a>
+</body>
+</html>
