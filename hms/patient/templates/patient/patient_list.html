@@ -9,7 +9,7 @@
     <ul>
         {% for patient in patients %}
             <li>
-                <b>Name:</b>{{ patient.patient_name }},<br> <b>Age:</b> {{ patient.age }},<br><b>Disease:</b> {{ patient.disease }},<br>
+                <b>Name:</b>{{ patient.patient_name }},<br> <b>Dob:</b> {{ patient.dob }},<br><b>Disease:</b> {{ patient.disease }},<br>
                 <b>Appointed Doctor:</b> {{ patient.appointed_doctor_name }},<br>
                 <b>Hospital:</b> {{ patient.hospital.hospitalName }},<br>
                 <b>Status:</b> {{ patient.get_patient_status_display }}<br>
