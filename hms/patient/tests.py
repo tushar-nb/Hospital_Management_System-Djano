@@ -5,7 +5,7 @@ from .models import Patient
 class patient_test(TestCase):
     def test_patient_exists(self):
         try:
-            patient = Patient.objects.get(id=2)
+            patient = Patient.objects.get(id=1)
             return self.assertTrue(True)
         except ObjectDoesNotExist:
             return self.assertFalse(False)
