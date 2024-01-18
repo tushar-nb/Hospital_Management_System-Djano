@@ -3,8 +3,6 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,logout,login
 
-
-# Create your views here.
 def index(request):
     if request.user.is_anonymous:
         return redirect('/login')
@@ -12,8 +10,7 @@ def index(request):
 
 def loginuser(request):
     if request.method=="POST" :
-        #check if user extered correct crediential
-        username = request.POST.get('username')
+        username = request.POST.get('username') #check if user entered correct crediential
         password = request.POST.get('password')
         # print(username,password)
         user = authenticate(username=username,password=password)
@@ -27,6 +24,6 @@ def loginuser(request):
 
 def logoutuser(request):
     logout(request)
-    # return render(request,'logout.html')\
+    # return render(request,'logout.html')
     return redirect('/login')
 

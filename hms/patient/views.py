@@ -1,8 +1,6 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Patient
+from .models import Patient, VisitTrack
 from .forms import PatientForm
-from rest_framework.views import APIView
-from rest_framework.response import Response
 
 def patient_index(request):
     return render(request,'patient/patient.html')
@@ -32,5 +30,13 @@ def change_patient_status(request, patient_id):
     else:
         # Prepare a list of status choices for the dropdown
         status_choices = Patient._meta.get_field('patient_status').choices
-
         return render(request, 'patient/change_status_form.html', {'patient': patient, 'status_choices': status_choices})
+    
+def patient_detail(request):
+    # patient = Patient.objects.all()
+    visit_tracks = VisitTrack.objects.all()
+    context = {
+        # 'patient': patient,
+        'visit_tracks': visit_tracks,
+    }
+    return render(request, 'patient/patient_detail.html', context)

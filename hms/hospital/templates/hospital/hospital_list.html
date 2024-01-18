@@ -8,7 +8,7 @@
     <h1>Hospital List</h1>
     <ul>
         {% for hospital in hospitals %}
-            <li>{{ hospital.hospitalName }} - {{ hospital.address }} - {{ hospital.department }} - {{ hospital.disease }}
+            <li>{{ hospital.hospitalName }} - {{ hospital.address }} - {{ hospital.departments }} 
                 [<a href="{% url 'delete_hospital' hospital_name=hospital.hospitalName %}">Delete</a>]
             </li>
         {% endfor %}

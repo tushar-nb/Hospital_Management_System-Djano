@@ -6,4 +6,5 @@ urlpatterns = [
   path('hospital/',views.hospital_list,name='hospital_list'),
   path('hospital/add',views.add_hospital,name='add_hospital'),
   path('hospital/delete/<str:hospital_name>',views.delete_hospital,name='delete_hospital')
+  # path('hospital/doctor',views.add_doctor,name='add_doctor')
 ]
